@@ -1,64 +1,29 @@
-import React, { ReactNode, useEffect, useState } from "react";
-
-import axios from "axios";
-const baseURL = "localhost:8080/";
-
-import { Image, InputGroup, InputLeftAddon } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  solid,
-  regular,
-  brands,
-} from "@fortawesome/fontawesome-svg-core/import.macro";
-import {
-  IconButton,
   Avatar,
-  Box,
-  CloseButton,
-  Flex,
-  HStack,
-  VStack,
-  Icon,
-  useColorModeValue,
-  Link,
-  Drawer,
-  DrawerContent,
-  Text,
-  useDisclosure,
-  BoxProps,
-  FlexProps,
-  Menu,
+  Box, BoxProps, Button, CloseButton, Drawer,
+  DrawerContent, Flex, FlexProps, FormControl,
+  FormLabel, Heading, HStack, Icon, IconButton, Image, Input, InputGroup, InputLeftAddon, Link, Menu,
   MenuButton,
   MenuDivider,
   MenuItem,
-  MenuList,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Heading,
-  Select,
-  Textarea,
+  MenuList, Select, Text, Textarea, useColorModeValue, useDisclosure, VStack
 } from "@chakra-ui/react";
+import axios from "axios";
+import React, { ReactNode, ReactText, useEffect, useState } from "react";
+import { IconType } from "react-icons";
 import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-  FiChevronDown,
-} from "react-icons/fi";
+  AiFillFileText,
+  AiFillHome, AiFillSetting,
+  AiFillStar
+} from "react-icons/ai";
 import { FaGraduationCap } from "react-icons/fa";
 import {
-  AiFillSetting,
-  AiFillStar,
-  AiFillFileText,
-  AiFillHome,
-} from "react-icons/ai";
+  FiChevronDown, FiMenu
+} from "react-icons/fi";
 import { HiUsers } from "react-icons/hi";
-import { IconType } from "react-icons";
-import { ReactText } from "react";
+
+const baseURL = "localhost:8080/";
+
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -74,27 +39,22 @@ const LinkItems: Array<LinkItemProps> = [
 
 export default function TeacherForm({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [teacherRegistration, setTeacherRegistration] = useState<String>("");
-  const [teacherFirstName, setTeacherFirstName] = useState<String>("");
-  const [teacherLastName, setTeacherLastName] = useState<String>("");
-  const [teacherEmail, setTeacherEmail] = useState<String>("");
-  const [teacherPhone, setTeacherPhone] = useState<String>("");
-  const [teacherDescription, setTeacherDescription] = useState<String>("");
-  const [teacherResumeActivities, setTeacherResumeActivities] =
+  
+  const [name, setName] = useState<String>("");
+  const [email, setEmail] = useState<String>("");
+  const [phone, setPhone] = useState<String>("");
+  const [description, setDescription] = useState<String>("");
+  const [resumeActivities, setResumeActivities] =
     useState<String>("");
-  const [teacherPassword, setTeacherPassword] = useState<String>("");
-
+  
   const createTeacher = () => {
     axios
       .post(baseURL + "/teacher", {
-        registration: teacherRegistration,
-        firstName: teacherFirstName,
-        lastname: teacherLastName,
-        email: teacherEmail,
-        phone: teacherPhone,
-        description: teacherDescription,
-        resumeActivities: teacherResumeActivities,
-        password: teacherPassword,
+        firstName: name,
+        email: email,
+        phone: phone,
+        description: description,
+        resumeActivities: resumeActivities,
       })
       .then(function (response) {
         console.log(response);
@@ -104,7 +64,7 @@ export default function TeacherForm({ children }: { children: ReactNode }) {
       });
   };
 
-  useEffect(createTeacher, []);
+  // useEffect(createTeacher, []);
 
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
@@ -137,26 +97,29 @@ export default function TeacherForm({ children }: { children: ReactNode }) {
         </Text>
         <FormControl width={"50vw"} my="2%">
           <FormLabel htmlFor="first-name">Nome</FormLabel>
-          <Input id="first-name" placeholder="Nome" bg="#fafafafa" />
+          <Input id="first-name" placeholder="Nome" bg="#fafafafa"
+          value={name} onChange={event => setName(event.target.value)} />
         </FormControl>
-        <FormControl width={"50vw"} mb="2%">
+        {/* <FormControl width={"50vw"} mb="2%">
           <FormLabel htmlFor="login">Login</FormLabel>
           <Input id="login" placeholder="Login" bg="#fafafafa" />
-        </FormControl>
+        </FormControl> */}
         <FormControl width={"50vw"} mb="2%">
           <FormLabel htmlFor="login" mb="2%">
             Telefone
           </FormLabel>
           <InputGroup>
             <InputLeftAddon bg="#ecececf9" />
-            <Input type="tel" placeholder="phone number" bg="#fafafafa" />
+            <Input type="tel" placeholder="phone number" bg="#fafafafa" value={phone} onChange={event => setPhone(event.target.value)} />
           </InputGroup>
         </FormControl>
         <FormControl width={"50vw"} mb="2%">
           <FormLabel htmlFor="login">Email</FormLabel>
-          <Input id="login" placeholder="Email" bg="#fafafafa" />
+          <Input id="login" placeholder="Email" bg="#fafafafa"
+            value={email} onChange={event => setEmail(event.target.value)}
+          />
         </FormControl>
-        <FormControl width={"50vw"} mb="2%">
+        {/* <FormControl width={"50vw"} mb="2%">
           <FormLabel htmlFor="turma">Turma</FormLabel>
           <Select
             placeholder="Selecione uma turma"
@@ -167,7 +130,7 @@ export default function TeacherForm({ children }: { children: ReactNode }) {
             <option value="option2">Turma 2</option>
             <option value="option3">Turma 3</option>
           </Select>
-        </FormControl>
+        </FormControl> */}
         <Text mb="8px" width={"50vw"}>
           Informações gerais
         </Text>
@@ -175,6 +138,7 @@ export default function TeacherForm({ children }: { children: ReactNode }) {
           width={"50vw"}
           placeholder="Here is a sample placeholder"
           bg="#fafafafa"
+          value={description} onChange={event => setDescription(event.target.value)}
         />
         <Text mb="8px" width={"50vw"}>
           Complementos e Atividades
@@ -183,6 +147,7 @@ export default function TeacherForm({ children }: { children: ReactNode }) {
           width={"50vw"}
           placeholder="Here is a sample placeholder"
           bg="#fafafafa"
+          value={resumeActivities} onChange={event => setResumeActivities(event.target.value)}
         />
         <Button
           textColor={"white"}
@@ -190,6 +155,7 @@ export default function TeacherForm({ children }: { children: ReactNode }) {
           width={"80px"}
           my="15px"
           bgColor="#5A1113"
+          onClick={() => createTeacher()}
         >
           Concluir
         </Button>
