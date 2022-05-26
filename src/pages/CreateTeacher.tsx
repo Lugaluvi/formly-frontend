@@ -1,4 +1,7 @@
 import React, { ReactNode } from 'react';
+import { Image, InputGroup, InputLeftAddon } from '@chakra-ui/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import {
   IconButton,
   Avatar,
@@ -38,6 +41,18 @@ import {
   FiMenu,
   FiChevronDown,
 } from 'react-icons/fi';
+import {
+  FaGraduationCap, 
+} from 'react-icons/fa';
+import {
+  AiFillSetting,
+  AiFillStar,
+  AiFillFileText,
+  AiFillHome
+} from 'react-icons/ai';
+import {
+  HiUsers
+} from 'react-icons/hi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 interface LinkItemProps {
@@ -45,12 +60,12 @@ interface LinkItemProps {
   icon: IconType;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Tela Inicial', icon: FiHome },
-  { name: 'Alunos', icon: FiTrendingUp },
-  { name: 'Resumos', icon: FiCompass },
-  { name: 'Disciplinas', icon: FiStar },
-  { name: 'Responsáveis', icon: FiSettings },
-  { name: 'Professores', icon: FiSettings },
+  { name: 'Tela Inicial', icon: AiFillHome },
+  { name: 'Alunos', icon: HiUsers },
+  { name: 'Resumos', icon: AiFillFileText },
+  { name: 'Disciplinas', icon: AiFillStar },
+  { name: 'Responsáveis', icon: AiFillSetting },
+  { name: 'Professores', icon: FaGraduationCap  },
 ];
 export default function SidebarWithHeader({
   children,
@@ -81,35 +96,41 @@ export default function SidebarWithHeader({
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
       </Box>
-      <Flex marginLeft={'600px'} direction={'column'}>
+      <Flex marginLeft={'35%'} direction={'column'}>
       <Heading>Cadastro do Professor</Heading>
       <Text>Preencha as informações abaixo conforme o cadastro do professor.</Text>
-      <FormControl width={'50vw'}>
+      <FormControl width={'50vw'} my="2%">
         <FormLabel htmlFor='first-name'>Nome</FormLabel>
-        <Input id='first-name' placeholder='Nome'  />
+        <Input id='first-name' placeholder='Nome' bg="#fafafafa" />
       </FormControl>
-      <FormControl width={'50vw'}>
+      <FormControl width={'50vw'} mb="2%">
         <FormLabel htmlFor='login'>Login</FormLabel>
-        <Input id='login' placeholder='Login'  />
+        <Input id='login' placeholder='Login' bg="#fafafafa" />
       </FormControl>
-      <FormControl width={'50vw'}>
-        <FormLabel htmlFor='login'>Telefone</FormLabel>
-        <Input id='login' placeholder='Telefone'  />
+      <FormControl width={'50vw'} mb="2%">
+        <FormLabel htmlFor='login' mb="2%">Telefone</FormLabel>
+        <InputGroup>
+          <InputLeftAddon children='+55' bg="#ecececf9"/>
+          <Input type='tel' placeholder='phone number' bg="#fafafafa" />
+        </InputGroup>
       </FormControl>
-      <FormControl width={'50vw'}>
+      <FormControl width={'50vw'} mb="2%">
         <FormLabel htmlFor='login'>Email</FormLabel>
-        <Input id='login' placeholder='Email'  />
+        <Input id='login' placeholder='Email' bg="#fafafafa" />
       </FormControl>
-      <Select placeholder='Selecione uma turma' width={'50vw'}>
+      <FormControl width={'50vw'} mb="2%">
+      <FormLabel htmlFor='turma'>Turma</FormLabel>
+      <Select placeholder='Selecione uma turma' width={'50vw'} bg="#fafafafa" >
         <option value='option1'>Turma 1</option>
         <option value='option2'>Turma 2</option>
         <option value='option3'>Turma 3</option>
       </Select>
-      <Text mb='8px' width={'50vw'}>Informações gerais</Text>
-      <Textarea width={'50vw'} placeholder='Here is a sample placeholder' />
-      <Text mb='8px' width={'50vw'}>Complementos e Atividades</Text>
-      <Textarea width={'50vw'} placeholder='Here is a sample placeholder' />
-      <Button textColor={'white'} variant='solid' width={'80px'} bgColor='#5A1113'>Concluir</Button>
+      </FormControl>
+      <Text mb='8px' width={'50vw'} mb="2%">Informações gerais</Text>
+      <Textarea width={'50vw'} placeholder='Here is a sample placeholder' bg="#fafafafa" />
+      <Text mb='8px' width={'50vw'} mb="2%">Complementos e Atividades</Text>
+      <Textarea width={'50vw'} placeholder='Here is a sample placeholder' bg="#fafafafa" />
+      <Button textColor={'white'} variant='solid' width={'80px'} my="15px" bgColor='#5A1113'>Concluir</Button>
       </Flex>
     </Box>
   );
@@ -131,16 +152,18 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-      <Text fontSize="2xl" color={'white'} fontWeight="bold">
-          Form-ly
-        </Text>
+        <Box boxSize="90px" justifyContent="center">
+          <Image boxSize="80px" src="https://imgur.com/gjGQVRJ.png" ml="30%" marginY="15px" alt="Logo Form-Ly" />
+        </Box>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      {LinkItems.map((link) => (
-        <NavItem color={'white'} key={link.name} icon={link.icon}>
-          {link.name}
-        </NavItem>
-      ))}
+      <Box mt="25px">
+        {LinkItems.map((link) => (
+            <NavItem height={'50px'} color={'white'} key={link.name} icon={link.icon}>
+              {link.name}
+            </NavItem>
+        ))}
+      </Box>
     </Box>
   );
 };
