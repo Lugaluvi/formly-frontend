@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@chakra-ui/react';
+import { Button, Flex, Heading, Link } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -19,6 +19,9 @@ const Home: NextPage = () => {
             <Heading as="h1" size="lg">
               Bem-vindo(a), vamos começar?
             </Heading>
+            <Flex flexDirection="column" alignItems="center" mt='5vh'>
+              <Link href='/CreateTeacher'><Button bgColor='#5A1113' textColor={'white'} variant='solid'>Começar</Button></Link>
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
