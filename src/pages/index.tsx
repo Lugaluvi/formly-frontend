@@ -1,7 +1,5 @@
 import { Button, Flex, Heading, Link } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
 import { LayoutMain } from '../layouts';
 
 const Home: NextPage = () => {
@@ -20,7 +18,7 @@ const Home: NextPage = () => {
               Bem-vindo(a), vamos começar?
             </Heading>
             <Flex flexDirection="column" alignItems="center" mt='5vh'>
-              <Link href='/CreateTeacher'><Button bgColor='#5A1113' textColor={'white'} variant='solid'>Começar</Button></Link>
+              <Link href='/create-teacher'><Button bgColor='#5A1113' textColor={'white'} variant='solid'>Começar</Button></Link>
             </Flex>
           </Flex>
         </Flex>
