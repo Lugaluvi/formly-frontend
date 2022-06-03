@@ -13,10 +13,10 @@ import { Logo } from "../Logo";
 
 const ITEMS = [
   { name: "Tela Inicial", icon: FaHome, href: "/home" },
-  { name: "Alunos", icon: FaChild, href: "#" },
-  { name: "Resumos", icon: FaPaperclip, href: "#" },
-  { name: "Disciplinas", icon: FaAppleAlt, href: "#" },
-  { name: "Responsáveis", icon: FaUserFriends, href: "#" },
+  { name: "Alunos", icon: FaChild, href: "/students" },
+  { name: "Resumos", icon: FaPaperclip, href: "/resumes" },
+  { name: "Disciplinas", icon: FaAppleAlt, href: "/subjects" },
+  { name: "Responsáveis", icon: FaUserFriends, href: "/responsible" },
   { name: "Professores", icon: FaGraduationCap, href: "/teachers" },
 ];
 
