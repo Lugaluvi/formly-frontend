@@ -23,6 +23,7 @@ export const LayoutAuth: FC<LayoutAuthProps> = ({ title, children }) => (
           height="calc(100vh - 90px)"
           width="100%"
           style={{ overflow: "auto" }}
+          padding="12"
         >
           {children}
         </Box>

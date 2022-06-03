@@ -16,7 +16,7 @@ import { LayoutAuth } from "../../layouts";
 
 const baseURL = "localhost:8080/";
 
-export default function TeacherForm() {
+const TeacherForm = () => {
   const [name, setName] = useState<String>("");
   const [email, setEmail] = useState<String>("");
   const [phone, setPhone] = useState<String>("");
@@ -42,7 +42,7 @@ export default function TeacherForm() {
 
   return (
     <LayoutAuth title="Cadastrar professor">
-      <Flex marginLeft="35%" direction="column">
+      <Flex direction="column">
         <Heading>Cadastro do Professor</Heading>
         <Text>
           Preencha as informações abaixo conforme o cadastro do professor.
@@ -131,4 +131,6 @@ export default function TeacherForm() {
       </Flex>
     </LayoutAuth>
   );
-}
+};
+
+export default TeacherForm;
