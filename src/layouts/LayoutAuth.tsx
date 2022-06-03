@@ -10,11 +10,22 @@ interface LayoutAuthProps {
 
 export const LayoutAuth: FC<LayoutAuthProps> = ({ title, children }) => (
   <LayoutEmpty title={title}>
-    <Flex height="100%" flexDirection="row" flexWrap="wrap">
+    <Flex
+      height="100%"
+      flexDirection="row"
+      flexWrap="wrap"
+      style={{ overflow: "hidden" }}
+    >
       <Sidebar />
       <Box height="100%" width="calc(100% - 120px)">
         <Header />
-        <Box width="100%">{children}</Box>
+        <Box
+          height="calc(100vh - 90px)"
+          width="100%"
+          style={{ overflow: "auto" }}
+        >
+          {children}
+        </Box>
       </Box>
     </Flex>
   </LayoutEmpty>
