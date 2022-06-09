@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/jost": "^4.5.10",
     "axios": "^0.27.2",
     "babel-plugin-macros": "^3.1.0",
     "framer-motion": "^6",

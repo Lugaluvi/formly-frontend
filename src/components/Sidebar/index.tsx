@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Text, Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import {
@@ -27,7 +27,7 @@ export const Sidebar = () => {
     router.asPath.includes(href) ? "#911C1F" : "#6E1517";
 
   return (
-    <Box width="120px" background="#5A1113" height="full">
+    <Box width="100px" background="#5A1113" height="full">
       <Flex justifyContent="center" paddingY={1}>
         <Logo />
       </Flex>
@@ -46,7 +46,7 @@ export const Sidebar = () => {
                 <item.icon size={24} />
               </Flex>
             </GridItem>
-            <GridItem textAlign="center">{item.name}</GridItem>
+            <GridItem textAlign="center"><Text fontSize='sm'>{item.name}</Text></GridItem>
           </Grid>
         </Link>
       ))}

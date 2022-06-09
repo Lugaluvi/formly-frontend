@@ -29,7 +29,7 @@ export const Header = () => {
 
   return (
     <Box
-      height="90px"
+      height="75px"
       width="full"
       borderBottomColor="gray.200"
       borderBottomWidth="1px"
@@ -43,7 +43,7 @@ export const Header = () => {
       >
         <Breadcrumb>
           {breadcrumbItems.map((item) => (
-            <BreadcrumbItem key={item.title} style={{ fontSize: "24px" }}>
+            <BreadcrumbItem key={item.title} style={{ fontSize: "22px", marginLeft: "30px" }}>
               <BreadcrumbLink as={Link} href={item.href}>
                 {item.title}
               </BreadcrumbLink>
