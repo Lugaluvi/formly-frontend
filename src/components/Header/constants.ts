@@ -12,6 +12,8 @@ export const BREADCRUMBS: { [key: string]: Array<BREADCRUMB> } = {
   ],
   "/teachers/new": [
     { title: "Professores", href: "/teachers" },
-    { title: "Cadastro do Professor", href: "/teachers/new" },
   ],
+  "/students": [
+    { title: "Alunos", href: "/students" },
+  ]
 };
