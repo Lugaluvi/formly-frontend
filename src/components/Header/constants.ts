@@ -13,7 +13,7 @@ export const BREADCRUMBS: { [key: string]: Array<BREADCRUMB> } = {
   "/teachers/new": [
     { title: "Professores", href: "/teachers" },
   ],
-  "/students": [
-    { title: "Alunos", href: "/students" },
-  ]
+  "/resumes/new": [
+    { title: "Novo Resumo", href: "/resumes/new" },
+  ],
 };
