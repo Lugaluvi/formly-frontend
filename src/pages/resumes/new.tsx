@@ -26,7 +26,7 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 import { LayoutAuth } from "../../layouts";
-import colors from "../../../theme/colors";
+import theme from "../../../theme";
 
 const baseURL = "localhost:8080/";
 
@@ -61,7 +61,7 @@ const ResumeForm = () => {
       <HStack spacing="24px" align="flex-start">
         <Flex direction="column">
           <Text fontSize="4xl">Gerar resumo</Text>
-          <Text color={colors.subtitle} mb="2%">
+          <Text color={theme.secondary} mb="2%">
             Preencha as informações abaixo conforme o comportamento do aluno.
           </Text>
           <FormControl width="50vw" my="2%">
@@ -70,13 +70,13 @@ const ResumeForm = () => {
               id="title"
               placeholder="Informe o título"
               value={title}
-              focusBorderColor={colors.default}
+              focusBorderColor={theme.primary}
               onChange={(event) => setTitle(event.target.value)}
             />
           </FormControl>
           <FormControl width="50vw" my="2%">
             <FormLabel htmlFor="login">Dificuldades em matérias</FormLabel>
-            <Text color={colors.subtitle} mb="2%">
+            <Text color={theme.secondary} mb="2%">
               Selecione as matérias que o aluno apresentou dificuldade.
             </Text>
             <Checkbox
@@ -186,7 +186,7 @@ const ResumeForm = () => {
           </FormControl>
           <FormControl width="50vw" my="2%">
             <FormLabel htmlFor="login">Motivo das dificuldades</FormLabel>
-            <Text color={colors.subtitle} mb="2%">
+            <Text color={theme.secondary} mb="2%">
               Selecione o motivo das dificuldades que o aluno teve.
             </Text>
             <Checkbox
@@ -249,7 +249,7 @@ const ResumeForm = () => {
                 value={generalObservations}
                 onChange={(event) => setGeneralObservations(event.target.value)}
                 placeholder="Descreva as observações"
-                focusBorderColor={colors.default}
+                focusBorderColor={theme.primary}
                 size="sm"
               />
             </FormControl>
@@ -259,7 +259,7 @@ const ResumeForm = () => {
                 value={behaviourAttitudes}
                 onChange={(event) => setBehaviourAttitudes(event.target.value)}
                 placeholder="Descreva sobre o comportamento e atitudes do aluno(a)"
-                focusBorderColor={colors.default}
+                focusBorderColor={theme.primary}
                 size="sm"
               />
             </FormControl>
@@ -268,7 +268,7 @@ const ResumeForm = () => {
             textColor="white"
             width="100px"
             mt="2%"
-            bgColor={colors.default}
+            bgColor={theme.primary}
             fontWeight="normal"
             onClick={() => createResume()}
           >

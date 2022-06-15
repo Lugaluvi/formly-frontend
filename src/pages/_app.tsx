@@ -2,7 +2,7 @@ import '@fontsource/jost'
 
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import theme from '../../theme/font'
+import theme from '../../theme'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
