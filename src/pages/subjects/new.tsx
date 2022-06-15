@@ -18,7 +18,7 @@ const SubjectForm = () => {
 
   const createSubject = () => {
     axios
-      .post(baseURL + "/student", {
+      .post(baseURL + "/subject", {
         name: name,
       })
       .then(function (response) {
