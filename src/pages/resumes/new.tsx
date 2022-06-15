@@ -70,7 +70,7 @@ const ResumeForm = () => {
               id="title"
               placeholder="Informe o título"
               value={title}
-              focusBorderColor={theme.primary}
+              focusBorderColor="primary"
               onChange={(event) => setTitle(event.target.value)}
             />
           </FormControl>
@@ -249,7 +249,7 @@ const ResumeForm = () => {
                 value={generalObservations}
                 onChange={(event) => setGeneralObservations(event.target.value)}
                 placeholder="Descreva as observações"
-                focusBorderColor={theme.primary}
+                focusBorderColor="primary"
                 size="sm"
               />
             </FormControl>
@@ -259,7 +259,7 @@ const ResumeForm = () => {
                 value={behaviourAttitudes}
                 onChange={(event) => setBehaviourAttitudes(event.target.value)}
                 placeholder="Descreva sobre o comportamento e atitudes do aluno(a)"
-                focusBorderColor={theme.primary}
+                focusBorderColor="primary"
                 size="sm"
               />
             </FormControl>
@@ -268,7 +268,7 @@ const ResumeForm = () => {
             textColor="white"
             width="100px"
             mt="2%"
-            bgColor={theme.primary}
+            bgColor="primary"
             fontWeight="normal"
             onClick={() => createResume()}
           >

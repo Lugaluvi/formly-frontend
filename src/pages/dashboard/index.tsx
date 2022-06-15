@@ -30,33 +30,8 @@ import Link from "next/link";
 const baseURL = "localhost:8080/";
 
 const Dashboard = () => {
-  const [title, setTitle] = useState<String>("");
-  const [difficulties, setDifficulties] = useState<Array<String>>([""]);
-  const [difficultiesMotives, setDifficultiesMotives] = useState<Array<String>>(
-    [""]
-  );
-  const [generalObservations, setGeneralObservations] = useState<String>("");
-  const [behaviourAttitudes, setBehaviourAttitudes] = useState<String>("");
-
-  const createResume = () => {
-    axios
-      .post(baseURL + "/resume", {
-        title: title,
-        difficulties: difficulties,
-        difficultiesMotives: difficultiesMotives,
-        generalObservations: generalObservations,
-        behaviourAttitudes: behaviourAttitudes,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
   return (
-    <LayoutAuth title="Gerar resumo">
+    <LayoutAuth title="Tela inicial">
       <HStack spacing={200} align="flex-start" mb="3%">
         <Box>
           <HStack spacing="24px">
