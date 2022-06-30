@@ -4,6 +4,9 @@ export interface BREADCRUMB {
 }
 
 export const BREADCRUMBS: { [key: string]: Array<BREADCRUMB> } = {
+  "/profile/new": [
+    { title: "Editar usuário", href: "/profile/new" },
+  ],
   "/dashboard": [
     { title: "Tela inicial", href: "/dashboard" },
   ],

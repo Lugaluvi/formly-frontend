@@ -63,7 +63,7 @@ export const Header = () => {
           </MenuButton>
           <MenuList>
             {/* TODO: Add link to profile */}
-            <MenuItem>Perfil</MenuItem>
+            <MenuItem onClick={() => window.location.href = '/profile/new'}>Perfil</MenuItem>
             <MenuDivider />
             {/* TODO: Handle logout */}
             <MenuItem>Sair</MenuItem>
