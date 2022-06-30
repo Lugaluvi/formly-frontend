@@ -79,7 +79,7 @@ const StudentForm = () => {
         </FormControl>
         <FormControl width="50vw" my="1%">
           <FormLabel htmlFor="age">Idade</FormLabel>
-          <NumberInput defaultValue={1} min={1} max={100}>
+          <NumberInput defaultValue={10} min={1} max={100}>
             <NumberInputField 
               id="age"
               value={age}

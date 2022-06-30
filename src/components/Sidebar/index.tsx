@@ -12,7 +12,7 @@ import {
 import { Logo } from "../Logo";
 
 const ITEMS = [
-  { name: "Tela Inicial", icon: FaHome, href: "/home" },
+  { name: "Tela Inicial", icon: FaHome, href: "/dashboard" },
   { name: "Alunos", icon: FaChild, href: "/students" },
   { name: "Resumos", icon: FaPaperclip, href: "/resumes" },
   { name: "Disciplinas", icon: FaAppleAlt, href: "/subjects" },

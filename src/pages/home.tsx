@@ -18,7 +18,7 @@ const Home: NextPage = () => {
               Bem-vindo(a), vamos começar?
             </Heading>
             <Flex flexDirection="column" alignItems="center" mt='5vh'>
-              <Link href='/teachers/new'><Button bgColor='#5A1113' textColor={'white'} variant='solid'>Começar</Button></Link>
+              <Link href='/dashboard'><Button bgColor='#5A1113' textColor={'white'} variant='solid'>Começar</Button></Link>
             </Flex>
           </Flex>
         </Flex>

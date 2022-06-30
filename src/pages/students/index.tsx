@@ -9,42 +9,18 @@ import {
   TableContainer,
   Tbody,
   Td,
-  Tfoot,
+  Text,
   Th,
   Thead,
   Tr,
+  VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
 import { FaChild } from "react-icons/fa";
 import { LayoutAuth } from "../../layouts";
 
-const baseURL = "localhost:8080/";
-
 const StudentsList = () => {
-  const [name, setName] = useState<String>("");
-  const [email, setEmail] = useState<String>("");
-  const [phone, setPhone] = useState<String>("");
-  const [description, setDescription] = useState<String>("");
-  const [resumeActivities, setResumeActivities] = useState<String>("");
-
-  const listStudents = () => {
-    axios
-      .post(baseURL + "/students", {
-        firstName: name,
-        email: email,
-        phone: phone,
-        description: description,
-        resumeActivities: resumeActivities,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
   return (
     <LayoutAuth title="Alunos">
       <Flex direction="column">
@@ -68,7 +44,12 @@ const StudentsList = () => {
               <Tr>
                 <Td>João de Barro</Td>
                 <Td>234567890</Td>
-                <Td>Maria de Barro</Td>
+                <Td>
+                  <VStack align="left">
+                    <Text fontWeight="bold">Eliana da Terra</Text>
+                    <Link href="#">ver perfil</Link>
+                  </VStack>
+                </Td>
                 <Td>
                   <Button
                     textColor="white"
@@ -84,7 +65,12 @@ const StudentsList = () => {
               <Tr>
                 <Td>João de Barro</Td>
                 <Td>234567890</Td>
-                <Td>Maria de Barro</Td>
+                <Td>
+                  <VStack align="left">
+                    <Text fontWeight="bold">Eliana da Terra</Text>
+                    <Link href="#">ver perfil</Link>
+                  </VStack>
+                </Td>
                 <Td>
                   <Button
                     textColor="white"
@@ -100,7 +86,12 @@ const StudentsList = () => {
               <Tr>
                 <Td>João de Barro</Td>
                 <Td>234567890</Td>
-                <Td>Maria de Barro</Td>
+                <Td>
+                  <VStack align="left">
+                    <Text fontWeight="bold">Eliana da Terra</Text>
+                    <Link href="#">ver perfil</Link>
+                  </VStack>
+                </Td>
                 <Td>
                   <Button
                     textColor="white"
@@ -114,14 +105,6 @@ const StudentsList = () => {
                 </Td>
               </Tr>
             </Tbody>
-            <Tfoot>
-              <Tr>
-                <Th>Nome</Th>
-                <Th>Matrícula</Th>
-                <Th>Responsável Legal</Th>
-                <Th>Ação</Th>
-              </Tr>
-            </Tfoot>
           </Table>
         </TableContainer>
       </Flex>
