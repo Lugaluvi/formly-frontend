@@ -37,4 +37,10 @@ export const BREADCRUMBS: { [key: string]: Array<BREADCRUMB> } = {
   "/resumes/new": [
     { title: "Novo resumo", href: "/resumes/new" },
   ],
+  "/responsible": [
+    { title: "Responsáveis", href: "/responsible" },
+  ],
+  "/responsible/new": [
+    { title: "Novo responsável", href: "/responsible/new" },
+  ],
 };
