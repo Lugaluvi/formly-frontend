@@ -25,7 +25,7 @@ const StudentsList = () => {
     <LayoutAuth title="Alunos">
       <Flex direction="column">
         <HStack justifyContent={"space-between"}>
-          <Heading>Alunos</Heading>
+          <Text fontSize="4xl">Alunos</Text>
           <Link href='/students/new'>
             Criar aluno
           </Link>
