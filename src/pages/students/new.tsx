@@ -19,17 +19,15 @@ import theme from "../../../theme";
 const baseURL = "localhost:8080/";
 
 const StudentForm = () => {
-  const [registration, setRegistration] = useState<String>("");
-  const [firstName, setFirstName] = useState<String>("");
-  const [lastName, setLastName] = useState<String>("");
-  const [age, setAge] = useState<String>("0");
+  const [registration, setRegistration] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [age, setAge] = useState<string>("0");
 
   const createStudent = () => {
     axios
       .post(baseURL + "/student", {
         registration: registration,
-        firstName: firstName,
-        lastname: lastName,
+        name: name,
         age: age,
       })
       .then(function (response) {
@@ -58,23 +56,13 @@ const StudentForm = () => {
           />
         </FormControl>
         <FormControl width="50vw" my="1%">
-          <FormLabel htmlFor="firstName">Nome</FormLabel>
+          <FormLabel htmlFor="name">Nome</FormLabel>
           <Input
-            id="firstName"
+            id="name"
             placeholder="Informe o nome"
-            value={firstName}
+            value={name}
             focusBorderColor="primary"
-            onChange={(event) => setFirstName(event.target.value)}
-          />
-        </FormControl>
-        <FormControl width="50vw" my="1%">
-          <FormLabel htmlFor="lastName">Sobrenome</FormLabel>
-          <Input
-            id="lastName"
-            placeholder="Informe o sobrenome"
-            value={lastName}
-            focusBorderColor="primary"
-            onChange={(event) => setLastName(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
           />
         </FormControl>
         <FormControl width="50vw" my="1%">

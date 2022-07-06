@@ -18,7 +18,20 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 import { FaChild } from "react-icons/fa";
-import { LayoutAuth } from "../../layouts";
+import { LayoutAuth } from "../../layouts"
+
+const baseURL = "localhost:8080/";
+
+const getStudents = () => {
+  axios
+    .post(baseURL + "/student")
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
 
 const StudentsList = () => {
   return (
@@ -30,12 +43,14 @@ const StudentsList = () => {
             Criar aluno
           </Link>
         </HStack>
+        <br></br>
         <TableContainer>
           <Table variant='simple'>
             <Thead>
               <Tr>
                 <Th>Nome</Th>
                 <Th>Matrícula</Th>
+                <Th>Idade</Th>
                 <Th>Responsável Legal</Th>
                 <Th>Ação</Th>
               </Tr>
@@ -44,6 +59,7 @@ const StudentsList = () => {
               <Tr>
                 <Td>João de Barro</Td>
                 <Td>234567890</Td>
+                <Td>10</Td>
                 <Td>
                   <VStack align="left">
                     <Text fontWeight="bold">Eliana da Terra</Text>
@@ -51,58 +67,10 @@ const StudentsList = () => {
                   </VStack>
                 </Td>
                 <Td>
-                  <Button
-                    textColor="white"
-                    variant="solid"
-                    width="180px"
-                    my="15px"
-                    bgColor="#5A1113"
-                  >
-                    Visualizar Resumo
-                  </Button>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>João de Barro</Td>
-                <Td>234567890</Td>
-                <Td>
-                  <VStack align="left">
-                    <Text fontWeight="bold">Eliana da Terra</Text>
-                    <Link href="#">ver perfil</Link>
-                  </VStack>
-                </Td>
-                <Td>
-                  <Button
-                    textColor="white"
-                    variant="solid"
-                    width="180px"
-                    my="15px"
-                    bgColor="#5A1113"
-                  >
-                    Visualizar Resumo
-                  </Button>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>João de Barro</Td>
-                <Td>234567890</Td>
-                <Td>
-                  <VStack align="left">
-                    <Text fontWeight="bold">Eliana da Terra</Text>
-                    <Link href="#">ver perfil</Link>
-                  </VStack>
-                </Td>
-                <Td>
-                  <Button
-                    textColor="white"
-                    variant="solid"
-                    width="180px"
-                    my="15px"
-                    bgColor="#5A1113"
-                  >
-                    Visualizar Resumo
-                  </Button>
-                </Td>
+                <Link href="students/:id/edit" color='red.700'>
+                  Editar aluno
+                </Link>
+              </Td>
               </Tr>
             </Tbody>
           </Table>

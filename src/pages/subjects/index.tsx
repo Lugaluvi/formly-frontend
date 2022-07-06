@@ -26,6 +26,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { LayoutAuth } from "../../layouts";
 import Link from "next/link";
+import theme from "../../../theme";
 
 const baseURL = "localhost:8080/";
 
@@ -33,7 +34,12 @@ const Subjects = () => {
   return (
     <LayoutAuth title="Matérias">
       <HStack justifyContent={"space-between"} mb="2%">
-        <Text fontSize="4xl">Matérias</Text>
+        <Box>
+          <Text fontSize="4xl">Matérias</Text>
+          <Text color={theme.secondary} mb="2%">
+            Aqui estão listadas as matérias da sua escola.
+          </Text>
+        </Box>
         <Link href='/subjects/new'>
           Nova matéria
         </Link>
@@ -48,27 +54,11 @@ const Subjects = () => {
           </Thead>
           <Tbody>
             <Tr>
-              <Td fontWeight="bold">História</Td>
+              <Td>História</Td>
               <Td>
-                <Button colorScheme="red" variant="outline">
+                <Link href="subjects/:id/edit" color='red.700'>
                   Editar matéria
-                </Button>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td fontWeight="bold">Geografia</Td>
-              <Td>
-                <Button colorScheme="red" variant="outline">
-                  Editar matéria
-                </Button>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td fontWeight="bold">Informática</Td>
-              <Td>
-                <Button colorScheme="red" variant="outline">
-                  Editar matéria
-                </Button>
+                </Link>
               </Td>
             </Tr>
           </Tbody>

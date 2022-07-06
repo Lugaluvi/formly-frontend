@@ -3,41 +3,26 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  Heading,
+  HStack,
   Input,
-  InputGroup,
-  InputLeftAddon,
+  Link,
+  Select,
   Text,
   Textarea,
-  Checkbox,
-  CheckboxGroup,
-  Stack,
-  Stat,
-  StatLabel,
-  StatNumber,
-  StatHelpText,
-  StatArrow,
-  StatGroup,
-  HStack,
-  Center,
-  Divider,
-  Container,
 } from "@chakra-ui/react";
 import axios from "axios";
-import React, { useState } from "react";
-import { LayoutAuth } from "../../layouts";
+import { useState } from "react";
 import theme from "../../../theme";
+import { LayoutAuth } from "../../layouts";
 
 const baseURL = "localhost:8080/";
 
 const ResumeForm = () => {
-  const [title, setTitle] = useState<String>("");
-  const [difficulties, setDifficulties] = useState<Array<String>>([""]);
-  const [difficultiesMotives, setDifficultiesMotives] = useState<Array<String>>(
-    [""]
-  );
-  const [generalObservations, setGeneralObservations] = useState<String>("");
-  const [behaviourAttitudes, setBehaviourAttitudes] = useState<String>("");
+  const [title, setTitle] = useState<string>("");
+  const [difficulties, setDifficulties] = useState<string>("");
+  const [difficultiesMotives, setDifficultiesMotives] = useState<string>("");
+  const [generalObservations, setGeneralObservations] = useState<string>("");
+  const [behaviourAttitudes, setBehaviourAttitudes] = useState<string>("");
 
   const createResume = () => {
     axios
@@ -79,168 +64,46 @@ const ResumeForm = () => {
             <Text color={theme.secondary} mb="2%">
               Selecione as matérias que o aluno apresentou dificuldade.
             </Text>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficulties.includes("his")}
-              onChange={() =>
-                setDifficulties({
-                  arrayvar: [...difficulties, "his"],
-                })
-              }
+            <Select
+              placeholder="Selecione uma matéria"
+              width="50vw"
+              bg="#fafafafa"
+              onChange={(event) => setDifficulties(event.target.value)}
             >
-              História
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficulties.includes("math")}
-              onChange={() =>
-                setDifficulties({
-                  arrayvar: [...difficulties, "math"],
-                })
-              }
-            >
-              Matemática
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficulties.includes("geo")}
-              onChange={() =>
-                setDifficulties({
-                  arrayvar: [...difficulties, "geo"],
-                })
-              }
-            >
-              Geografia
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficulties.includes("philo")}
-              onChange={() =>
-                setDifficulties({
-                  arrayvar: [...difficulties, "philo"],
-                })
-              }
-            >
-              Filosofia
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficulties.includes("comp")}
-              onChange={() =>
-                setDifficulties({
-                  arrayvar: [...difficulties, "comp"],
-                })
-              }
-            >
-              Informática
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficulties.includes("eng")}
-              onChange={() =>
-                setDifficulties({
-                  arrayvar: [...difficulties, "eng"],
-                })
-              }
-            >
-              Inglês
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficulties.includes("esp")}
-              onChange={() =>
-                setDifficulties({
-                  arrayvar: [...difficulties, "esp"],
-                })
-              }
-            >
-              Espanhol
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficulties.includes("socio")}
-              onChange={() =>
-                setDifficulties({
-                  arrayvar: [...difficulties, "socio"],
-                })
-              }
-            >
-              Sociologia
-            </Checkbox>
+              <option value="history">História</option>
+              <option value="math">Matématica</option>
+              <option value="geo">Geografia</option>
+              <option value="philo">Filosofia</option>
+              <option value="comp">Computação</option>
+              <option value="eng">Inglês</option>
+              <option value="esp">Espanhol</option>
+              <option value="socio">Sociologia</option>
+            </Select>
           </FormControl>
           <FormControl width="50vw" my="2%">
             <FormLabel htmlFor="login">Motivo das dificuldades</FormLabel>
             <Text color={theme.secondary} mb="2%">
               Selecione o motivo das dificuldades que o aluno teve.
             </Text>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficultiesMotives.includes("student-attention")}
-              onChange={() =>
-                setdifficultiesMotivesMotives({
-                  arrayvar: [...difficulties, "student-attention"],
-                })
-              }
+            <Select
+              placeholder="Selecione uma dificuldade"
+              width="50vw"
+              bg="#fafafafa"
+              onChange={(event) => setDifficultiesMotives(event.target.value)}
             >
-              Aluno não prestou atenção
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficultiesMotives.includes("student-plays")}
-              onChange={() =>
-                setDifficultiesMotives({
-                  arrayvar: [...difficulties, "student-plays"],
-                })
-              }
-            >
-              Aluno brincou durante a aula
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficultiesMotives.includes("student-absent")}
-              onChange={() =>
-                setDifficultiesMotives({
-                  arrayvar: [...difficulties, "student-absent"],
-                })
-              }
-            >
-              Aluno apresentou muitas faltas
-            </Checkbox>
-            <Checkbox
-              size="md"
-              pr="2%"
-              colorScheme="red"
-              isChecked={difficultiesMotives.includes("student-support")}
-              onChange={() =>
-                setDifficultiesMotives({
-                  arrayvar: [...difficulties, "student-support"],
-                })
-              }
-            >
-              Aluno não tem o suporte necessário
-            </Checkbox>
+              <option value="student-attention">
+                Aluno não prestou atenção
+              </option>
+              <option value="student-plays">
+                Aluno brincou durante a aula
+              </option>
+              <option value="student-absent">
+                Aluno apresentou muitas faltas
+              </option>
+              <option value="student-support">
+                Aluno não tem o suporte necessário
+              </option>
+            </Select>
           </FormControl>
           <Flex my="3%">
             <FormControl width="24vw" mr="2%">
@@ -266,34 +129,16 @@ const ResumeForm = () => {
           </Flex>
           <Button
             textColor="white"
-            width="100px"
-            mt="2%"
-            bgColor="primary"
-            fontWeight="normal"
-            onClick={() => createResume()}
+            variant="solid"
+            width="180px"
+            my="15px"
+            bgColor="#5A1113"
           >
-            Concluir
+            <Link href="/pdf" isExternal>
+              Gerar resumo
+            </Link>
           </Button>
         </Flex>
-        <HStack spacing="24px">
-          <Center height="200px">
-            <Divider orientation="vertical" />
-          </Center>
-          <Stat>
-            <StatLabel fontSize="2xl" mb="2%">
-              Informações do Aluno(a)
-            </StatLabel>
-            <StatNumber fontSize="xl" mb="2%">
-              João de Barro
-            </StatNumber>
-            <StatHelpText fontSize="md">
-              Responsável: Maria de Barro
-            </StatHelpText>
-            <StatHelpText fontSize="md">Matrícula: 423452254-54</StatHelpText>
-            <StatHelpText fontSize="md">Disciplinas: 6</StatHelpText>
-            <StatHelpText fontSize="md">Idade: 13 Anos</StatHelpText>
-          </Stat>
-        </HStack>
       </HStack>
     </LayoutAuth>
   );

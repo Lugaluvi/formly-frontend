@@ -1,7 +1,10 @@
 import {
+  Box,
   Button,
   Flex,
   Heading,
+  HStack,
+  Link,
   Table,
   TableContainer,
   Tbody,
@@ -9,9 +12,11 @@ import {
   Th,
   Thead,
   Tr,
+  Text,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
+import theme from "../../../theme";
 import { LayoutAuth } from "../../layouts";
 
 const baseURL = "localhost:8080/";
@@ -20,64 +25,36 @@ const TeachersList = () => {
   return (
     <LayoutAuth title="Professores">
       <Flex direction="column">
-        <Heading>Professores</Heading>
+      <HStack justifyContent={"space-between"} mb="2%">
+        <Box>
+          <Text fontSize="4xl">Professores</Text>
+          <Text color={theme.secondary} mb="2%">
+            Aqui estão listadas os professores de sua escola.
+          </Text>
+        </Box>
+        <Link href='/teachers/new'>
+          Novo Professor
+        </Link>
+      </HStack>
         <TableContainer>
           <Table variant='simple'>
             <Thead>
               <Tr>
                 <Th>Nome</Th>
-                <Th>Matrícula</Th>
-                <Th>Turmas</Th>
+                <Th>E-mail</Th>
+                <Th>Telefone</Th>
                 <Th>Ação</Th>
               </Tr>
             </Thead>
             <Tbody>
               <Tr>
                 <Td>Fernando da Terra</Td>
-                <Td>234567890</Td>
-                <Td>5a - 5b</Td>
+                <Td>fernando@terra.com</Td>
+                <Td>47 0000-0000</Td>
                 <Td>
-                  <Button
-                    textColor="white"
-                    variant="solid"
-                    width="180px"
-                    my="15px"
-                    bgColor="#5A1113"
-                  >
-                    Visualizar Resumo
-                  </Button>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Fernando da Terra</Td>
-                <Td>234567890</Td>
-                <Td>5a - 5b</Td>
-                <Td>
-                  <Button
-                    textColor="white"
-                    variant="solid"
-                    width="180px"
-                    my="15px"
-                    bgColor="#5A1113"
-                  >
-                    Visualizar Resumo
-                  </Button>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Fernando da Terra</Td>
-                <Td>234567890</Td>
-                <Td>5a - 5b</Td>
-                <Td>
-                  <Button
-                    textColor="white"
-                    variant="solid"
-                    width="180px"
-                    my="15px"
-                    bgColor="#5A1113"
-                  >
-                    Visualizar Resumo
-                  </Button>
+                  <Link href="teachers/:id/edit" color='red.700'>
+                    Editar responsável
+                  </Link>
                 </Td>
               </Tr>
             </Tbody>

@@ -19,8 +19,8 @@ import { LayoutMain } from '../../layouts';
 const baseURL = "localhost:8080/";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState<String>("");
-  const [password, setPassword] = useState<String>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const Login = () => {
     axios

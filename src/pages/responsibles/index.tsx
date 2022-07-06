@@ -8,11 +8,13 @@ import {
   Td,
   Th,
   Thead,
-  Tr
+  Tr,
+  Box
 } from "@chakra-ui/react";
 import React from "react";
 import { LayoutAuth } from "../../layouts";
 import Link from "next/link";
+import theme from "../../../theme";
 
 const baseURL = "localhost:8080/";
 
@@ -20,8 +22,13 @@ const Responsible = () => {
   return (
     <LayoutAuth title="Responsáveis">
       <HStack justifyContent={"space-between"} mb="2%">
-        <Text fontSize="4xl">Responsáveis</Text>
-        <Link href='/responsible/new'>
+        <Box>
+          <Text fontSize="4xl">Responsáveis</Text>
+          <Text color={theme.secondary} mb="2%">
+            Aqui estão listadas os responsáveis dos alunos de sua escola.
+          </Text>
+        </Box>
+        <Link href='/responsibles/new'>
           Novo Responsável
         </Link>
       </HStack>
@@ -35,27 +42,11 @@ const Responsible = () => {
           </Thead>
           <Tbody>
             <Tr>
-              <Td fontWeight="bold">Responsável Maria</Td>
+              <Td>Responsável Maria</Td>
               <Td>
-                <Button colorScheme="red" variant="outline">
+                <Link href="responsibles/:id/edit" color='red.700'>
                   Editar responsável
-                </Button>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td fontWeight="bold">Responsável João</Td>
-              <Td>
-                <Button colorScheme="red" variant="outline">
-                  Editar responsável
-                </Button>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td fontWeight="bold">Responsável Paulo</Td>
-              <Td>
-                <Button colorScheme="red" variant="outline">
-                  Editar responsável
-                </Button>
+                </Link>
               </Td>
             </Tr>
           </Tbody>

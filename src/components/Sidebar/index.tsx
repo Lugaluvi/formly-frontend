@@ -1,4 +1,4 @@
-import { Text, Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import {
@@ -16,7 +16,7 @@ const ITEMS = [
   { name: "Alunos", icon: FaChild, href: "/students" },
   { name: "Resumos", icon: FaPaperclip, href: "/resumes" },
   { name: "Disciplinas", icon: FaAppleAlt, href: "/subjects" },
-  { name: "Responsáveis", icon: FaUserFriends, href: "/responsible" },
+  { name: "Responsáveis", icon: FaUserFriends, href: "/responsibles" },
   { name: "Professores", icon: FaGraduationCap, href: "/teachers" },
 ];
 
@@ -46,7 +46,9 @@ export const Sidebar = () => {
                 <item.icon size={24} />
               </Flex>
             </GridItem>
-            <GridItem textAlign="center"><Text fontSize='sm'>{item.name}</Text></GridItem>
+            <GridItem textAlign="center">
+              <Text fontSize="sm">{item.name}</Text>
+            </GridItem>
           </Grid>
         </Link>
       ))}

@@ -4,27 +4,28 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import axios from "axios";
-import React, { useState } from "react";
-import { LayoutAuth } from "../../layouts";
+import { useState } from "react";
 import theme from "../../../theme";
+import { LayoutAuth } from "../../layouts";
 
 const baseURL = "localhost:8080/";
 
-const ResponsibleForm = () => {
-  const [firstName, setFirstName] = useState<String>("");
-  const [lastname, setLastName] = useState<String>("");
-  const [email, setEmail] = useState<String>("");
-  const [password, setPassword] = useState<String>("");
-  const [phone, setPhone] = useState<String>("");
+const ProfileForm = () => {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-
-  const createResponsible = () => {
+  const createProfile = () => {
     axios
-      .post(baseURL + "/responsible", {
+      .post(baseURL + "/admin", {
         firstName: firstName,
+        lastname: lastName,
+        phone: phone,
+        password: password,
       })
       .then(function (response) {
         console.log(response);
@@ -35,11 +36,11 @@ const ResponsibleForm = () => {
   };
 
   return (
-    <LayoutAuth title="Criar Responsável">
+    <LayoutAuth title="Editar usuário">
       <Flex direction="column">
-        <Text fontSize="4xl">Criar responsável</Text>
+        <Text fontSize="4xl">Editar usuário</Text>
         <Text color={theme.secondary} mb="2%">
-          Informe os dados para criar o responsável.
+          Preencha as informações abaixo para editar o seu perfil.
         </Text>
         <FormControl width="50vw" my="1%">
           <FormLabel htmlFor="firstName">Nome</FormLabel>
@@ -56,19 +57,19 @@ const ResponsibleForm = () => {
           <Input
             id="lastName"
             placeholder="Informe o sobrenome"
-            value={lastname}
+            value={lastName}
             focusBorderColor="primary"
             onChange={(event) => setLastName(event.target.value)}
           />
         </FormControl>
         <FormControl width="50vw" my="1%">
-          <FormLabel htmlFor="email">E-mail</FormLabel>
+          <FormLabel htmlFor="phone">Telefone</FormLabel>
           <Input
-            id="email"
-            placeholder="Informe o e-mail"
-            value={email}
+            id="phone"
+            placeholder="Informe o telefone"
+            value={phone}
             focusBorderColor="primary"
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(event) => setPhone(event.target.value)}
           />
         </FormControl>
         <FormControl width="50vw" my="1%">
@@ -82,23 +83,13 @@ const ResponsibleForm = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </FormControl>
-        <FormControl width="50vw" my="1%">
-          <FormLabel htmlFor="phone">Telefone</FormLabel>
-          <Input
-            id="phone"
-            placeholder="Informe o telefone"
-            value={phone}
-            focusBorderColor="primary"
-            onChange={(event) => setPhone(event.target.value)}
-          />
-        </FormControl>
         <Button
           textColor="white"
           width="100px"
           mt="1%"
           bgColor="primary"
           fontWeight="normal"
-          onClick={() => createResponsible()}
+          onClick={() => createProfile()}
         >
           Concluir
         </Button>
@@ -107,4 +98,4 @@ const ResponsibleForm = () => {
   );
 };
 
-export default ResponsibleForm;
+export default ProfileForm;

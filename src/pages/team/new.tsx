@@ -14,7 +14,7 @@ import theme from "../../../theme";
 const baseURL = "localhost:8080/";
 
 const TeamForm = () => {
-  const [name, setName] = useState<String>("");
+  const [name, setName] = useState<string>("");
 
   const createTeam = () => {
     axios

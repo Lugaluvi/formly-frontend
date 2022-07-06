@@ -1,31 +1,23 @@
 import {
-  Button,
-  Text,
+  Box,
+  Center,
+  Divider,
+  HStack,
   Stat,
   StatLabel,
   StatNumber,
-  HStack,
-  Center,
-  Divider,
-  Box,
   Table,
   TableContainer,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
   VStack,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import axios from "axios";
-import React, { useState } from "react";
-import { LayoutAuth } from "../../layouts";
 import Link from "next/link";
+import { LayoutAuth } from "../../layouts";
 
 const baseURL = "localhost:8080/";
 
@@ -82,42 +74,16 @@ const Dashboard = () => {
               <StatLabel fontSize="3xl" mb="2%">
                 Informações gerais
               </StatLabel>
-              <StatNumber
-                fontSize="lg"
-                color="#6B7D87"
-                fontWeight="normal"
-              >
+              <StatNumber fontSize="lg" color="#6B7D87" fontWeight="normal">
                 Alunos com dificuldades em matérias: 35
               </StatNumber>
-              <StatNumber
-                fontSize="lg"
-                color="#6B7D87"
-                fontWeight="normal"
-              >
+              <StatNumber fontSize="lg" color="#6B7D87" fontWeight="normal">
                 Alunos com dificuldades comportamentais: 12
               </StatNumber>
             </Stat>
           </HStack>
         </Box>
       </HStack>
-      <Menu>
-        <MenuButton
-          as={Button}
-          rightIcon={<ChevronDownIcon />}
-          mb="1%"
-          fontWeight="normal"
-          bgColor="#5A1113"
-          color="#FFF"
-        >
-          Listar
-        </MenuButton>
-        <MenuList>
-          <MenuItem>Todos os alunos</MenuItem>
-          <MenuItem>Todas as matérias</MenuItem>
-          <MenuItem>Todas as turmas</MenuItem>
-          <MenuItem>Todas os resumos</MenuItem>
-        </MenuList>
-      </Menu>
       <TableContainer>
         <Table variant="simple">
           <Thead>
@@ -138,14 +104,14 @@ const Dashboard = () => {
               <Td>
                 <VStack align="left">
                   <Text fontWeight="bold">Eliana da Terra</Text>
-                  <Link href="#">ver perfil</Link>
+                  <Link href="responsibles/1">ver perfil</Link>
                 </VStack>
               </Td>
               <Td>5 resumos gerados</Td>
               <Td>
-                <Button colorScheme="red" variant="outline">
-                  Gerar Resumo
-                </Button>
+                <Link href="resumes/new" color="red.700">
+                  Gerar resumo
+                </Link>
               </Td>
             </Tr>
             <Tr>
@@ -155,14 +121,14 @@ const Dashboard = () => {
               <Td>
                 <VStack align="left">
                   <Text fontWeight="bold">Eliana da Terra</Text>
-                  <Link href="#">ver perfil</Link>
+                  <Link href="responsibles/1">ver perfil</Link>
                 </VStack>
               </Td>
               <Td>5 resumos gerados</Td>
               <Td>
-                <Button colorScheme="red" variant="outline">
-                  Gerar Resumo
-                </Button>
+                <Link href="resumes/new" color="red.700">
+                  Gerar resumo
+                </Link>
               </Td>
             </Tr>
             <Tr>
@@ -172,14 +138,12 @@ const Dashboard = () => {
               <Td>
                 <VStack align="left">
                   <Text fontWeight="bold">Eliana da Terra</Text>
-                  <Link href="#">ver perfil</Link>
+                  <Link href="responsibles/1">ver perfil</Link>
                 </VStack>
               </Td>
               <Td>5 resumos gerados</Td>
               <Td>
-                <Button colorScheme="red" variant="outline">
-                  Gerar Resumo
-                </Button>
+                <Link href="resumes/new">Gerar resumo</Link>
               </Td>
             </Tr>
           </Tbody>

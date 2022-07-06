@@ -13,19 +13,18 @@ import theme from "../../../theme";
 
 const baseURL = "localhost:8080/";
 
-const ProfileForm = () => {
-  const [firstName, setFirstName] = useState<String>("");
-  const [lastName, setLastName] = useState<String>("");
-  const [phone, setPhone] = useState<String>("");
-  const [password, setPassword] = useState<String>("");
+const ResponsibleForm = () => {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastname, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
 
-  const createProfile = () => {
+
+  const createResponsible = () => {
     axios
-      .post(baseURL + "/admin", {
+      .post(baseURL + "/responsibles", {
         firstName: firstName,
-        lastname: lastName,
-        phone: phone,
-        password: password
       })
       .then(function (response) {
         console.log(response);
@@ -36,11 +35,11 @@ const ProfileForm = () => {
   };
 
   return (
-    <LayoutAuth title="Editar usuário">
+    <LayoutAuth title="Criar Responsável">
       <Flex direction="column">
-        <Text fontSize="4xl">Editar usuário</Text>
+        <Text fontSize="4xl">Criar responsável</Text>
         <Text color={theme.secondary} mb="2%">
-          Preencha as informações abaixo para editar o seu perfil.
+          Informe os dados para criar o responsável.
         </Text>
         <FormControl width="50vw" my="1%">
           <FormLabel htmlFor="firstName">Nome</FormLabel>
@@ -53,23 +52,13 @@ const ProfileForm = () => {
           />
         </FormControl>
         <FormControl width="50vw" my="1%">
-          <FormLabel htmlFor="lastName">Sobrenome</FormLabel>
+          <FormLabel htmlFor="email">E-mail</FormLabel>
           <Input
-            id="lastName"
-            placeholder="Informe o sobrenome"
-            value={lastName}
+            id="email"
+            placeholder="Informe o e-mail"
+            value={email}
             focusBorderColor="primary"
-            onChange={(event) => setLastName(event.target.value)}
-          />
-        </FormControl>
-        <FormControl width="50vw" my="1%">
-          <FormLabel htmlFor="phone">Telefone</FormLabel>
-          <Input
-            id="phone"
-            placeholder="Informe o telefone"
-            value={phone}
-            focusBorderColor="primary"
-            onChange={(event) => setPhone(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </FormControl>
         <FormControl width="50vw" my="1%">
@@ -83,13 +72,23 @@ const ProfileForm = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </FormControl>
+        <FormControl width="50vw" my="1%">
+          <FormLabel htmlFor="phone">Telefone</FormLabel>
+          <Input
+            id="phone"
+            placeholder="Informe o telefone"
+            value={phone}
+            focusBorderColor="primary"
+            onChange={(event) => setPhone(event.target.value)}
+          />
+        </FormControl>
         <Button
           textColor="white"
           width="100px"
           mt="1%"
           bgColor="primary"
           fontWeight="normal"
-          onClick={() => createProfile()}
+          onClick={() => createResponsible()}
         >
           Concluir
         </Button>
@@ -98,4 +97,4 @@ const ProfileForm = () => {
   );
 };
 
-export default ProfileForm;
+export default ResponsibleForm;

@@ -17,20 +17,16 @@ import { LayoutAuth } from "../../layouts";
 const baseURL = "localhost:8080/";
 
 const TeacherForm = () => {
-  const [name, setName] = useState<String>("");
-  const [email, setEmail] = useState<String>("");
-  const [phone, setPhone] = useState<String>("");
-  const [description, setDescription] = useState<String>("");
-  const [resumeActivities, setResumeActivities] = useState<String>("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
 
   const createTeacher = () => {
     axios
       .post(baseURL + "/teacher", {
-        firstName: name,
+        name: name,
         email: email,
-        phone: phone,
-        description: description,
-        resumeActivities: resumeActivities,
+        phone: phone
       })
       .then(function (response) {
         console.log(response);
@@ -48,28 +44,23 @@ const TeacherForm = () => {
           Preencha as informações abaixo conforme o cadastro do professor.
         </Text>
         <FormControl width="50vw" my="2%">
-          <FormLabel htmlFor="first-name">Nome</FormLabel>
+          <FormLabel htmlFor="name">Nome</FormLabel>
           <Input
-            id="first-name"
+            id="name"
             placeholder="Nome"
             bg="#fafafafa"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
         </FormControl>
-        {/* <FormControl width="50vw" mb="2%">
-          <FormLabel htmlFor="login">Login</FormLabel>
-          <Input id="login" placeholder="Login" bg="#fafafafa" />
-        </FormControl> */}
         <FormControl width="50vw" mb="2%">
           <FormLabel htmlFor="login" mb="2%">
             Telefone
           </FormLabel>
           <InputGroup>
-            <InputLeftAddon bg="#ecececf9" />
             <Input
               type="tel"
-              placeholder="phone number"
+              placeholder="Informe o telefone"
               bg="#fafafafa"
               value={phone}
               onChange={(event) => setPhone(event.target.value)}
@@ -86,38 +77,6 @@ const TeacherForm = () => {
             onChange={(event) => setEmail(event.target.value)}
           />
         </FormControl>
-        {/* <FormControl width="50vw" mb="2%">
-          <FormLabel htmlFor="turma">Turma</FormLabel>
-          <Select
-            placeholder="Selecione uma turma"
-            width="50vw"
-            bg="#fafafafa"
-          >
-            <option value="option1">Turma 1</option>
-            <option value="option2">Turma 2</option>
-            <option value="option3">Turma 3</option>
-          </Select>
-        </FormControl> */}
-        <Text mb="8px" width="50vw">
-          Informações gerais
-        </Text>
-        <Textarea
-          width="50vw"
-          placeholder="Here is a sample placeholder"
-          bg="#fafafafa"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
-        />
-        <Text mb="8px" width="50vw">
-          Complementos e Atividades
-        </Text>
-        <Textarea
-          width="50vw"
-          placeholder="Here is a sample placeholder"
-          bg="#fafafafa"
-          value={resumeActivities}
-          onChange={(event) => setResumeActivities(event.target.value)}
-        />
         <Button
           textColor="white"
           variant="solid"
